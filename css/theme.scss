@@ -1,0 +1,489 @@
+
+// Custom Fonts
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
+
+$theme-font:'Lato', sans-serif;
+$theme-color:#F8BB10;
+$bcolor:#000;
+$wcolor:#fff;
+$gcolor:#9e9e9e;
+
+// Start Sass Mixins
+
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+	background-clip: padding-box; 
+}
+
+@mixin border-radius-s($tl, $tr, $br, $bl) {
+	border-top-left-radius: $tl;
+	border-top-right-radius: $tr;
+	border-bottom-right-radius: $br;
+	border-bottom-left-radius: $bl;
+	-webkit-border-top-left-radius: $tl;
+	-webkit-border-top-right-radius: $tr;
+	-webkit-border-bottom-right-radius: $br;
+	-webkit-border-bottom-left-radius: $bl;
+	-moz-border-radius-topleft: $tl;
+	-moz-border-radius-topright: $tr;
+	-moz-border-radius-bottomright: $br;
+	-moz-border-radius-bottomleft: $bl;
+}
+
+@mixin box-shadow($left, $top, $radius, $color) {
+	box-shadow: $left $top $radius $color;
+	-webkit-box-shadow: $left $top $radius $color;
+	-moz-box-shadow: $left $top $radius $color;
+}
+
+@mixin scale ($svalue) {
+	@include transform(scale($svalue));
+}
+
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+@mixin transition($property,$time,$effect){
+	-webkit-transition: $property $time $effect;
+	-moz-transition: $property $time $effect;
+  	-ms-transition: $property $time $effect;
+	-o-transition: $property $time $effect;
+  	transition: $property $time $effect;
+}
+
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+   	-moz-transform: $transforms;
+    -o-transform: $transforms;
+    -ms-transform: $transforms;
+  	transform: $transforms;
+}
+
+@mixin translate ($x,$y) {
+	@include transform(translate($x,$y));
+}
+
+// *********************************************
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+html {overflow-x: hidden;}
+
+body {
+    font-family:$theme-font;
+  	overflow-x: hidden;
+}
+
+ul li {list-style: none;}
+
+.dropdown:hover>.dropdown-menu{
+	display:block;
+}
+
+a{
+	color:$bcolor;
+
+	&:hover, &:visited, &:focus {
+	  	text-decoration: none;
+		background-color: transparent;
+		outline: 0;
+	}
+}
+
+.zoomIn:hover{
+	@include scale(1.2);
+	@include transition(all,0.8s,ease);
+}
+
+.section-padding{padding: 5% 0;}
+
+.section-header{
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 12%;
+    text-align: right;
+
+    h3{
+		color: #727272;
+		font-size: 17px;
+		font-weight: 700;
+		text-transform: uppercase;
+    }
+
+    p{
+    	color: $gcolor;
+    	font-size: 14px;
+    }
+}
+
+.section-content{
+    width: 85%;
+    margin: 0 auto;
+}
+
+// Site Color Section
+
+.theme-color{color: $theme-color !important;}
+
+.fbfbfb{background: #fbfbfb;}
+
+.f8f8f8{background: #f8f8f8;}
+
+.fcfcfc{background: #fcfcfc;}
+
+
+
+
+// CSS For Header Section
+
+.header{
+
+	.photo{
+		padding-top: 23%;
+	    padding-right: 15%;
+	    text-align: right;
+
+		img{border-radius: 50%;}
+	}
+
+	.user-info{
+		border-bottom: 2px solid #ddd;
+		padding-top: 15%;
+	    padding-bottom: 10%;
+		.user-name{
+			max-height: 160px;
+			.first-name{
+				color: $gcolor;
+			    display: block;
+			    font-size: 67px;
+			    font-weight: 300;
+			    text-transform: lowercase;
+			}
+
+			.last-name{
+			    position: relative;
+			    top: -40px;
+			    font-size: 67px;
+			    font-weight: 700;
+			    text-transform: uppercase;
+			}
+		}
+
+		.designation{
+			span{
+				color: $gcolor;
+			    font-size: 21px;
+			    font-weight: 300;
+			    text-transform: capitalize;
+			}
+		}
+
+		.social{
+			position: absolute;
+    		bottom: 0;
+
+    		a{
+    			width: 35px;
+			    height: 35px;
+			    background: #ededed;
+			    border: 2px solid #ededed;
+			    @include border-radius(3px);
+			    color: $gcolor;
+			    display: inline-block;
+			    font-size: 20px;
+			    line-height: 30px;
+			    margin-right: 5px;
+			    text-align: center;
+
+			    &:hover{
+			    	background: $wcolor;
+			    	color: $theme-color;
+			    }
+    		}
+		}
+	}
+
+	.contact-info{
+		padding: 25px 0;
+
+		h4{
+			color:#727272;
+			font-size: 14px;
+		    font-weight: 700;
+		    text-transform: capitalize;
+		}
+
+		p{
+			color: $gcolor;
+		    font-size: 14px;
+		    font-weight: 400;
+		    text-transform: capitalize;
+
+		    a{
+		    	color: $gcolor;
+    			text-transform: lowercase;
+		    }
+		}
+	}
+}
+
+.intro{
+	p{
+	    color: $gcolor;
+    	font-size: 17px;
+    	line-height: 27px;
+	}
+}
+
+.expert{
+	.section-content{
+		.row{
+		    margin-bottom:10px;
+
+			h4{
+				color: #727272;
+			    font-size: 17px;
+			    font-weight: 700;
+			    text-transform: uppercase;
+			}
+
+			p{
+				color: gray;
+			    font-size: 14px;
+			    font-weight: 400;
+			    line-height: 28px;
+			}
+		}
+	}
+}
+
+.skill{
+	.section-content{
+		.row{
+		    margin-bottom: 30px;
+			
+			.skill-box{
+				h4{
+					color: #727272;
+				    font-size: 17px;
+				    font-weight: 700;
+				    text-transform: uppercase;
+
+					span{margin-right: 15px;}
+				}
+
+				.progress{
+					height:5px;
+					@include border-radius(0);
+				}
+			}
+		}
+	}
+}
+
+.experience{
+	.section-content{
+		padding-top: 6%;
+
+		.timeline{
+		    border-left: 2px solid #ddd;
+		    // padding: 5% 25px;
+	        padding-bottom: 30px;
+		    padding-left:25px;
+		    position: relative;
+			.timeline-item{
+				position: relative;
+				margin-bottom: 15px;
+				.timeline-point{
+					width: 10px;
+				    height: 10px;
+				    background: $theme-color;
+				    border-radius: 50%;
+				    box-shadow: 0 0 6px 3px $wcolor;
+				    position: absolute;
+				    top: 0;
+				    left: -31px;
+				}
+				.timeline-content{
+					.date{
+						color: $gcolor;
+					    font-size: 10px;
+					    font-weight: 500;
+					}
+					.company-name{
+						color: #727272;
+					    font-size: 17px;
+					    font-weight: 700;
+					    text-transform: uppercase;
+					}
+					.work-title{
+						color: #727272;
+					    font-size: 11px;
+					    font-weight: 500;
+					    text-transform: capitalize;
+					}
+					.location{@extend .date;}
+					.description{
+						color: $gcolor;
+					    font-size: 14px;
+					    font-weight: 400;
+				        line-height: 25px;
+					}
+				}
+			}
+
+			.timeline-footer-design{
+				border-top: 2px solid #ddd;
+			    width: 20px;
+			    position: absolute;
+			    left: -10px;
+			    bottom: 0;
+			}
+		}
+	}
+}
+
+.education{
+	@extend .experience;
+
+	.section-content{
+		padding-top: 0;
+	    padding-bottom: 5%;
+
+		.timeline{padding-top: 6.5%;}
+	}
+}
+
+.profile{
+	@extend .expert;
+
+	.section-content{
+		.row{
+		    margin-bottom:10px;
+
+			h4{
+				a{
+					i{
+						color: $gcolor;
+						font-size: 21px;
+					}
+				}
+			}
+		}
+	}
+}
+
+.award{
+	@extend .profile;
+
+	.section-content{
+		.hstyle{
+		    border-top: 5px solid $theme-color;
+		    padding-bottom: 15px;
+		    width: 70px;
+		}
+	}
+}
+    
+.protfolio{
+	.row{
+		margin-bottom: 25px;
+
+		.protfolio-box{
+			.photo{
+				position: relative;
+
+				img{
+					-webkit-filter: grayscale(90%);
+	    			filter: grayscale(90%);
+				}
+			}
+			.text{
+			    position: absolute;
+			    top: 0;
+			    width: 93%;
+		        height: 100%;
+	            background: #ffffffbf;
+	            padding: 25px;
+	            visibility: hidden;
+
+
+	            h4{
+	            	color:#3a3a3a;
+	            	font-size: 17px;
+				    font-weight: 700;
+				    text-transform: uppercase;
+	            }
+
+	            .hstyle{
+	        	    width: 0;
+	        	    height:3px;
+	        	    background: #3a3a3a;
+				    margin-top: 15px;
+				    margin-bottom: 15px;
+	            }
+
+	            p{
+	            	color:#3a3a3a;
+	            	font-size: 14px;
+				    font-weight: 400;
+				    line-height:25px;
+	            }
+			}
+
+			&:hover{
+				.text{
+				    visibility: visible;
+					transition: visibility 0.8s ease-out;
+
+					.hstyle{
+						width: 50px;
+						transition: width .5s linear;
+					}
+				}
+			}
+		}
+	}
+}
+
+.client{
+	@extend .award;
+
+	.section-content{
+		a{
+		    opacity: .5;
+
+		    &:hover{
+		    	opacity: 1;
+		    }
+		}
+	}
+}
+
+.contact{
+
+	@extend .header;
+
+	.user-info{
+		border-top: 2px solid #ddd;
+		border-bottom: 0;
+	    padding-bottom: 0;
+
+	    .social{bottom: 20px;}
+	}
+}
+
+
+// ************************************
+
+
+	
+	

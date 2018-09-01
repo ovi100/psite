@@ -1,0 +1,60 @@
+@media only screen and (min-width: 768px) and (max-width: 979px) {
+  .header {
+    border-bottom: 1px solid #ddd; }
+    .header .user-info {
+      text-align: center; }
+      .header .user-info .social {
+        position: unset;
+        margin-top: 25px; } }
+@media only screen and (max-width: 320px) {
+  .section-header {
+    width: 84%;
+    padding-top: 8%;
+    padding-bottom: 2%;
+    text-align: left; }
+
+  .hborder-xs {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; }
+
+  .header .photo {
+    padding-right: 0;
+    text-align: center; }
+  .header .user-info {
+    text-align: center; }
+    .header .user-info .user-name .first-name {
+      font-size: 50px; }
+    .header .user-info .user-name .last-name {
+      top: -30px;
+      left: -6px;
+      font-size: 45px; }
+    .header .user-info .designation span {
+      font-size: 15px; }
+    .header .user-info .social {
+      position: unset;
+      margin-top: 25px; }
+  .header .contact-info {
+    text-align: center; }
+
+  .skill .section-content .row, .protfolio .section-content .row {
+    margin-bottom: 0; }
+    .skill .section-content .row .col-12, .protfolio .section-content .row .col-12 {
+      margin-bottom: 25px; }
+
+  .client .section-content .row {
+    margin-bottom: 0; }
+    .client .section-content .row .col-6 {
+      margin-bottom: 20px; }
+
+  .contact .user-info .user-name .first-name {
+    font-size: 50px; }
+  .contact .user-info .user-name .last-name {
+    top: -30px;
+    left: -6px;
+    font-size: 45px; }
+  .contact .user-info .social {
+    position: unset;
+    margin-top: 15px;
+    margin-bottom: 15px; } }
+
+/*# sourceMappingURL=mediaqueries.css.map */
